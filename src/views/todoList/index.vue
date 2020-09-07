@@ -1,27 +1,24 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button @click="plus">{{data.count}}</button>
+    <button @click="plus">{{ data.count }}</button>
   </div>
 </template>
 
 <script>
-import {
-  reactive,
-  onBeforeMount,
-  onMounted,
-  onBeforeUpdate,
-  onUpdated,
-  onBeforeUnmount,
-  onUnmounted,
-} from "vue";
+import {reactive, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted} from "vue";
+import {useRouter, useRoute} from "vue-router";
 export default {
   name: "HelloWorld",
   props: {
-    msg: String,
+    msg: String
   },
   setup(props, args) {
-    const data = reactive({ count: 1 });
+    const router = useRouter();
+    const route = useRoute();
+    console.log("---router", router);
+    console.log("---route", route, route.params);
+    const data = reactive({count: 1});
     onBeforeMount(() => {
       console.log("--onBeforeMount", this);
     });
@@ -46,9 +43,9 @@ export default {
     console.log("---this", this, props, args);
     return {
       data,
-      plus,
+      plus
     };
-  },
+  }
 };
 </script>
 
