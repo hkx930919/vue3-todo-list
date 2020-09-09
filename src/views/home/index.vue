@@ -1,9 +1,23 @@
 <template>
-  <div><router-link to="/todoList/today">list</router-link></div>
+  <div>
+    <Header />
+    <List />
+  </div>
 </template>
 
 <script>
-export default {};
+import Header from "./components/Header.vue";
+import List from "./components/List.vue";
+
+export default {
+  components: {
+    Header,
+    List
+  },
+  setup() {
+    return {};
+  }
+};
 </script>
 
 <style></style>

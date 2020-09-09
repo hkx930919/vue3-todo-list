@@ -8,6 +8,7 @@
 <script>
 import {reactive, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted} from "vue";
 import {useRouter, useRoute} from "vue-router";
+
 export default {
   name: "HelloWorld",
   props: {
@@ -38,6 +39,7 @@ export default {
       console.log("--onUnmounted");
     });
     const plus = () => {
+      // eslint-disable-next-line no-plusplus
       data.count++;
     };
     console.log("---this", this, props, args);
