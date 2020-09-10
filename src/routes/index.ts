@@ -1,16 +1,14 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from "vue-router";
-import Home from "@/views/home/index.vue";
-import TodoList from "@/views/todoList/index.vue";
 
 const routerHistory = createWebHistory();
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    component: Home
+    component: () => import(/* chunkName home */ "@/views/home/index.vue")
   },
   {
-    path: "/todoList/:type",
-    component: TodoList
+    path: "/timeline",
+    component: () => import(/* chunkName timeline */ "@/views/timeline/index.vue")
   }
 ];
 const router = createRouter({

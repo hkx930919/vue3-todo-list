@@ -2,7 +2,7 @@
   <van-row class="header">
     <van-col span="12">{{ title }}</van-col>
     <van-col span="3" offset="6">
-      <van-icon name="plus" size="16" />
+      <van-icon name="plus" size="16" @click="onAdd" />
     </van-col>
     <van-col span="3">
       <van-icon name="filter-o" size="16" />

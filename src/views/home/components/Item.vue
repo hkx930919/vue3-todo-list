@@ -1,10 +1,10 @@
 <template>
   <div class="todo-item">
     <div class="left">
-      <p class="title">{{data.name}}</p>
-      <p class="duration">{{data.duration}}分钟</p>
+      <p class="title">{{ data.name }}</p>
+      <p class="duration">{{ data.duration }}分钟</p>
     </div>
-    <span class="right">开始</span>
+    <span class="right text-right">开始</span>
   </div>
 </template>
 
@@ -18,11 +18,11 @@ export default {
 };
 </script>
 
-<style  lang="less" scoped>
+<style lang="less" scoped>
 @import "../../../styles/index";
 .todo-item {
   margin: 12px;
-  padding: 12px;
+  padding: 12px 24px;
   border: 1px solid @border-color;
   border-radius: 4px;
   display: flex;

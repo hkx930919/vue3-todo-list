@@ -1,23 +1,11 @@
 <template>
-  <div class="home">
-    <Header :onAdd="handleAdd" />
-    <List :list="data.list" />
-    <AddItemDialog
-      :visible="dialogData.visible.value"
-      :onConfirm="handleConfirm"
-      :onCancel="closeDialog"
-      showCancelButton
-    />
-  </div>
+  <div class="timeline">timeline</div>
 </template>
 
 <script lang="ts">
 import {reactive, Ref, ref} from "vue";
 import {Dialog, Field, Tag} from "vant";
 import {TodoItem} from "@/types";
-import Header from "./components/Header.vue";
-import List from "./components/List.vue";
-import AddItemDialog from "./components/AddItemDialog.vue";
 
 interface DialogData {
   visible: Ref<boolean>;
@@ -37,9 +25,6 @@ function useDialog(): DialogData {
 }
 export default {
   components: {
-    Header,
-    List,
-    AddItemDialog,
     [Dialog.Component.name]: Dialog.Component,
     [Field.name]: Field,
     [Tag.name]: Tag
