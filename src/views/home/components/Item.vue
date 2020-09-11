@@ -8,12 +8,10 @@
   </div>
 </template>
 
-<script>
-import {TodoItem} from "@/types";
-
+<script lang="ts">
 export default {
   props: {
-    data: TodoItem
+    data: Object
   }
 };
 </script>

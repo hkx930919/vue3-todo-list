@@ -1,7 +1,7 @@
 <template>
   <div>
     <template v-if="list.length">
-      <TodoItem v-for="item in list" :data="item" :key="item.name" />
+      <Todo v-for="item in list" :data="item" :key="item.name" />
     </template>
     <van-empty
       v-else
@@ -13,12 +13,12 @@
 
 <script>
 import {Empty} from "vant";
-import TodoItem from "./Item.vue";
+import Todo from "./Item.vue";
 
 export default {
   components: {
     [Empty.name]: Empty,
-    TodoItem
+    Todo
   },
   props: {
     list: {
@@ -29,6 +29,4 @@ export default {
 };
 </script>
 
-
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>

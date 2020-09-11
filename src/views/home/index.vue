@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home page-container">
     <Header :onAdd="handleAdd" />
     <List :list="data.list" />
     <AddItemDialog
@@ -14,7 +14,7 @@
 <script lang="ts">
 import {reactive, Ref, ref} from "vue";
 import {Dialog, Field, Tag} from "vant";
-import {TodoItem} from "@/types";
+import {Todo} from "@/types";
 import Header from "./components/Header.vue";
 import List from "./components/List.vue";
 import AddItemDialog from "./components/AddItemDialog.vue";
@@ -52,7 +52,7 @@ export default {
     const handleAdd = () => {
       dialogData.changeVisible(true);
     };
-    const handleConfirm = (item: TodoItem) => {
+    const handleConfirm = (item: Todo) => {
       data.list.push(item);
       dialogData.changeVisible(false);
     };

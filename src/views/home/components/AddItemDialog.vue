@@ -49,7 +49,7 @@ export default {
     },
     onCancel: Function
   },
-  setup(props) {
+  setup(props: any) {
     const data: Data = reactive({
       value: "",
       duration: undefined,

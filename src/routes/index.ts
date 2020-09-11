@@ -1,6 +1,6 @@
-import {createRouter, createWebHistory, RouteRecordRaw} from "vue-router";
+import {createRouter, RouteRecordRaw, createWebHashHistory} from "vue-router";
 
-const routerHistory = createWebHistory();
+const routerHistory = createWebHashHistory();
 const routes: RouteRecordRaw[] = [
   {
     path: "/",

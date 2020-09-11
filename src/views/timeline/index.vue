@@ -1,52 +1,88 @@
 <template>
-  <div class="timeline">timeline</div>
+  <div class="timeline page-container">
+    <van-calendar
+      title="日历"
+      :poppable="false"
+      :show-confirm="false"
+      :style="{height: '380px'}"
+      row-height="48px"
+      :min-date="data.MIN_DATE"
+      :max-date="data.MAX_DATE"
+      @select="handleSelect"
+    />
+    <van-steps direction="vertical">
+      <van-step v-for="item in data.list" :key="item.id">
+        <Card :data="item" />
+      </van-step>
+    </van-steps>
+  </div>
 </template>
 
 <script lang="ts">
-import {reactive, Ref, ref} from "vue";
-import {Dialog, Field, Tag} from "vant";
-import {TodoItem} from "@/types";
+import {reactive} from "vue";
+import {Calendar, Step, Steps} from "vant";
+import moment from "moment";
+import Card from "./components/Card.vue";
 
-interface DialogData {
-  visible: Ref<boolean>;
-  changeVisible: (visible: boolean) => unknown;
-}
-function useDialog(): DialogData {
-  const visibleRef = ref(false);
-  const changeVisible = (visible: boolean) => {
-    visibleRef.value = visible;
-    console.log("---changeVisible", visibleRef.value);
-  };
-
-  return {
-    visible: visibleRef,
-    changeVisible
-  };
-}
+const MIN_DATE = new Date("2020/09/01");
+const MAX_DATE = new Date("2022/01/01");
 export default {
   components: {
-    [Dialog.Component.name]: Dialog.Component,
-    [Field.name]: Field,
-    [Tag.name]: Tag
+    [Calendar.name]: Calendar,
+    [Step.name]: Step,
+    [Steps.name]: Steps,
+    Card
   },
   setup() {
     const data = reactive({
-      list: [{name: "test", duration: 20}]
+      MIN_DATE,
+      MAX_DATE,
+      list: [
+        {
+          id: 1,
+          name: "测试标题",
+          content: `fasf房间奥斯阿发爱上了饭拉丝粉拉伸的风景奥拉夫阿里.
+          faf af \r
+          fasdf asfd a
+          `,
+          status: 1,
+          duration: 19,
+          startTime: "11:00",
+          endTime: "11:19"
+        },
+        {
+          id: 1,
+          name: "测试标题",
+          content: `fasf房间奥斯阿发爱上了饭拉丝粉拉伸的风景奥拉夫阿里.
+          faf af \r
+          fasdf asfd a
+          `,
+          status: 1,
+          duration: 19,
+          startTime: "11:00",
+          endTime: "11:19"
+        },
+        {
+          id: 1,
+          name: "测试标题",
+          content: `fasf房间奥斯阿发爱上了饭拉丝粉拉伸的风景奥拉夫阿里.
+          faf af \r
+          fasdf asfd a
+          `,
+          status: 1,
+          duration: 19,
+          startTime: "11:00",
+          endTime: "11:19"
+        }
+      ]
     });
-    const dialogData: DialogData = useDialog();
-    const handleAdd = () => {
-      dialogData.changeVisible(true);
+    const handleSelect = (date: Date) => {
+      console.log("---", date, moment(date).format("YYYY-MM-DD"));
     };
-    const handleConfirm = (item: TodoItem) => {
-      data.list.push(item);
-      dialogData.changeVisible(false);
+    return {
+      data,
+      handleSelect
     };
-
-    const closeDialog = () => {
-      dialogData.changeVisible(false);
-    };
-
-    return {data, dialogData, handleAdd, closeDialog, handleConfirm};
   }
 };
 </script>
