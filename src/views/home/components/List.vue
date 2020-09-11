@@ -1,7 +1,12 @@
 <template>
   <div>
     <template v-if="list.length">
-      <Todo v-for="item in list" :data="item" :key="item.name" />
+      <TodoItem
+        v-for="item in list"
+        :data="item"
+        :key="item.name"
+        @change="handleChange($event,item)"
+      />
     </template>
     <van-empty
       v-else
@@ -11,20 +16,31 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import {Empty} from "vant";
-import Todo from "./Item.vue";
+import {Todo} from "@/types";
+import TodoItem from "./Item.vue";
 
 export default {
   components: {
     [Empty.name]: Empty,
-    Todo
+    TodoItem
   },
   props: {
     list: {
       type: Array,
       default: () => []
     }
+  },
+  setup(props: any) {
+    const handleChange = (checked: boolean, item: Todo) => {
+      // eslint-disable-next-line no-param-reassign
+      item.status = checked ? 1 : 0;
+      console.log("---item", item);
+    };
+    return {
+      handleChange
+    };
   }
 };
 </script>

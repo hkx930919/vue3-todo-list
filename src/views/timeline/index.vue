@@ -41,10 +41,7 @@ export default {
         {
           id: 1,
           name: "测试标题",
-          content: `fasf房间奥斯阿发爱上了饭拉丝粉拉伸的风景奥拉夫阿里.
-          faf af \r
-          fasdf asfd a
-          `,
+          content: `fas`,
           status: 1,
           duration: 19,
           startTime: "11:00",
@@ -55,8 +52,7 @@ export default {
           name: "测试标题",
           content: `fasf房间奥斯阿发爱上了饭拉丝粉拉伸的风景奥拉夫阿里.
           faf af \r
-          fasdf asfd a
-          `,
+          fasdf asfd a`,
           status: 1,
           duration: 19,
           startTime: "11:00",
