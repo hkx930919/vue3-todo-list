@@ -1,6 +1,6 @@
 <template>
   <div class="timeline page-container">
-    <van-calendar
+    <!-- <van-calendar
       title="日历"
       :poppable="false"
       :show-confirm="false"
@@ -9,7 +9,8 @@
       :min-date="data.MIN_DATE"
       :max-date="data.MAX_DATE"
       @select="handleSelect"
-    />
+    />-->
+    <MyCalendar v-model:value="data.date" @changeMonth="changeMonth" />
     <van-steps direction="vertical">
       <van-step v-for="item in data.list" :key="item.id">
         <Card :data="item" />
@@ -22,6 +23,7 @@
 import {reactive} from "vue";
 import {Calendar, Step, Steps} from "vant";
 import moment from "moment";
+import MyCalendar from "@/components/Calendar/index.vue";
 import Card from "./components/Card.vue";
 
 const MIN_DATE = new Date("2020/09/01");
@@ -31,10 +33,12 @@ export default {
     [Calendar.name]: Calendar,
     [Step.name]: Step,
     [Steps.name]: Steps,
-    Card
+    Card,
+    MyCalendar
   },
   setup() {
     const data = reactive({
+      date: undefined,
       MIN_DATE,
       MAX_DATE,
       list: [
@@ -75,9 +79,15 @@ export default {
     const handleSelect = (date: Date) => {
       console.log("---", date, moment(date).format("YYYY-MM-DD"));
     };
+    console.log("---data.date", data.date);
+    const changeMonth = (date: string) => {
+      console.log("---date", date);
+      console.log("data.date", data.date);
+    };
     return {
       data,
-      handleSelect
+      handleSelect,
+      changeMonth
     };
   }
 };

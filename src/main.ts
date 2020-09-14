@@ -1,3 +1,10 @@
+/**
+ * @author 胡可熊
+ * @email hukexiong@banksteel.com
+ * @create date 2020-09-14 08:41:14
+ * @modify date 2020-09-14 08:41:14
+ * @desc [description]
+ */
 import {createApp} from "vue";
 import "lib-flexible";
 import "reset-css";

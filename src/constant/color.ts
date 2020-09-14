@@ -1,3 +1,10 @@
+/**
+ * @author 胡可熊
+ * @email hukexiong@banksteel.com
+ * @create date 2020-09-14 08:40:23
+ * @modify date 2020-09-14 08:40:23
+ * @desc [description]
+ */
 // eslint-disable-next-line import/prefer-default-export
 export const COLORS = [
   "#1abc9c",

@@ -1,3 +1,10 @@
+/**
+ * @author 胡可熊
+ * @email hukexiong@banksteel.com
+ * @create date 2020-09-14 08:41:01
+ * @modify date 2020-09-14 08:41:01
+ * @desc [description]
+ */
 import {DB_NAMES, OBJECT_STORE_NAMES} from "@/constant";
 
 interface TransactionOptions {
